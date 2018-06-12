@@ -1,8 +1,11 @@
-const counter = (state = 0, action) => {
+//import React, { Component } from 'react';
+import { INCREMENT, DECREMENT } from '../actions/type';
+ export default (state = 0, action) => {
+//console.log(action.type)
   switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
+    case INCREMENT:
+      return state+ 1;
+    case DECREMENT:
       return state - 1;
     default:
       return state;

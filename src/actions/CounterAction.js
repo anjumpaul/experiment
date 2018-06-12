@@ -1,18 +1,8 @@
-const { createStore } = Redux;
-const store = createStore(counter);
+import { INCREMENT } from './type';
 
-const render = () => {
-  ReactDOM.render(
-    <Counter
-      value={store.getState()}
-      onIncrement={() =>
-        store.dispatch({
-          type: 'INCREMENT'
-        })
-      }
-      onDecrement={() =>
-        store.dispatch({
-          type: 'DECREMENT'
-        })
-      })}
-    />
+export const CounterAction =() =>{
+  //console.log('incr');
+  return {
+    type:INCREMENT
+  }
+}

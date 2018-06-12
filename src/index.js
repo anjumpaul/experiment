@@ -3,21 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-import { createStore } from 'redux'
+import { Provider as StoreProvider } from 'react-redux';
+import { createStore } from 'redux';
 
-const counter = (state = 0, action) => {
-  //console.log(action)
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-    default:
-      return state
-  }
-}
 
-const store = createStore(counter)
+import CounterReducer from './reducers';
 
-ReactDOM.render(<App store={store}/>, document.getElementById('root'));
+const store = createStore( CounterReducer );
+
+ReactDOM.render(<StoreProvider store={store}>
+ <App />
+</StoreProvider>, document.getElementById('root'));
 registerServiceWorker();

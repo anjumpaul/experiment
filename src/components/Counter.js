@@ -1,26 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import {
-  CounterAction,
-  CounterActionDecrement,
-  addCounter,
-  removeCounter
-} from '../actions';
+
+//import NewCounter from './NewCounter'
 class Counter extends Component {
 render() {
+  const {index}=this.props
   return (
     <div>
       <h1>{this.props.value}</h1>
-      <button onClick={this.props.CounterAction}>+</button>
-    <button onClick={this.props.CounterActionDecrement}>-</button>
-
+      <button onClick = {() => this.props.CounterAction(index)}>+</button>
+    <button onClick = {() => this.props.CounterActionDecrement(index)}>-</button>
+    <button onClick = {() => this.props.removeCounter(index)}>remove counter</button>
     </div>
   )
 }
 }
-const mapStateToProps = (state) =>
-{
+//const mapStateToProps = (state) =>
+//{
   //console.log(state);
-  return {value:state}
-}
- export default connect(mapStateToProps, {CounterAction,CounterActionDecrement,addCounter,removeCounter}) (Counter)
+  //return {value:state}
+//}
+ export default Counter

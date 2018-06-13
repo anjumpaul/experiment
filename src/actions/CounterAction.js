@@ -5,17 +5,19 @@ import {
   REMOVE_COUNTER
 } from './type';
 
-export const CounterAction =() =>{
+export const CounterAction =(index) =>{
   //console.log('incr');
   return {
-    type:INCREMENT
+    type:INCREMENT,
+    payload:index
   }
 }
 
-export const CounterActionDecrement =() =>{
+export const CounterActionDecrement =(index) =>{
   //console.log('DECREMENT');
   return {
-    type:DECREMENT
+    type:DECREMENT,
+    payload:index
 }
 }
 export const addCounter = () => {
@@ -23,8 +25,9 @@ export const addCounter = () => {
     type:ADD_COUNTER
   }
 }
-export const removeCounter = () => {
+export const removeCounter = (index) => {
   return{
-    type:REMOVE_COUNTER
+    type:REMOVE_COUNTER,
+    payload:index
   }
 }
